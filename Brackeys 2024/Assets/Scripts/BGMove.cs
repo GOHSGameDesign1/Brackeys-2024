@@ -15,7 +15,7 @@ public class BGMove : MonoBehaviour
     void Update()
     {
 
-        if(transform.position.y <= -55)
+        if(transform.position.y <= -54.8)
         {
             transform.position = new Vector3(transform.position.x, 54.8f, transform.position.z);
         }
