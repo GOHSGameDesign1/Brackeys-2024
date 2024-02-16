@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class BGSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public GameObject BG;
+    //[SerializeField] private float time to
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Start is called before the first frame update
+    //void Start()
+    //{
         
-    }
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+        
+    //}
+
+    //IEnumerator Spawn()
+    //{
+
+    //}
 }
