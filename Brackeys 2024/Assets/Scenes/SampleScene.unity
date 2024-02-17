@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169500052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.006, y: 0.065, z: 0}
+  m_LocalPosition: {x: 0, y: 0.065, z: 0}
   m_LocalScale: {x: 0.7255, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,7 +506,134 @@ MonoBehaviour:
       m_Action: Player Controls
       m_Flags: 8
     m_Flags: 0
-  moveSpeed: 3
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1b8e2877-a4f5-4897-b525-59c63d611ae3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 0d751d96-cb52-448e-bc63-cbda2fd89980
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
+  moveSpeed: 6.5
+  jumpDuration: 0.65
+  jumpHeight: 2
+  playerJumpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 7.307016
+      outSlope: 7.307016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.045457296
+    - serializedVersion: 3
+      time: 0.31179255
+      value: 0.9962777
+      inSlope: 0.025983563
+      outSlope: 0.025983563
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5825124
+      outWeight: 0.1428572
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3968009
+      outSlope: -1.3968009
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.061874356
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  playerScaleCurveX:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -4.094177
+      outSlope: -4.094177
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.1703186
+      value: 0.30268556
+      inSlope: 0.18805794
+      outSlope: 0.18805794
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8221063
+    - serializedVersion: 3
+      time: 0.38580668
+      value: 0.88713044
+      inSlope: 0.8310016
+      outSlope: 0.8310016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.084648736
+      outWeight: 0.09646518
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.18376878
+      outSlope: 0.18376878
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shadowCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -2.4429529
+      outSlope: -2.4429529
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.20467034
+      value: 0.5
+      inSlope: -0.9077937
+      outSlope: -0.9077937
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.9989624
+      inSlope: 0.62736547
+      outSlope: 0.62736547
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &913972574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -589,8 +716,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170056823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.203, z: 0}
-  m_LocalScale: {x: 0.85080546, y: 0.4271183, z: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 792173930}
