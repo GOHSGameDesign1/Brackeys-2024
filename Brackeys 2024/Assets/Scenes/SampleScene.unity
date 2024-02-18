@@ -159,6 +159,8 @@ MonoBehaviour:
     spawnWaitTime: 3
   - Object: {fileID: 6018762650216830340, guid: dca73ad61896f704e8c217ade98b2d86, type: 3}
     spawnWaitTime: 2
+  - Object: {fileID: 4642734052755840079, guid: 7438d6c69daa45f4a980683027bba1fe, type: 3}
+    spawnWaitTime: 3
 --- !u!4 &14488741
 Transform:
   m_ObjectHideFlags: 0
