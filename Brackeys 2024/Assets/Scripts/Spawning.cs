@@ -45,7 +45,7 @@ public class Spawning : MonoBehaviour
             yield return spawnWait;
             if (spawnObject.isHorizontal)
             {
-                Instantiate(spawnObject.Object, new Vector3(PosOrNeg() * 8, Random.Range(-5f, 5f), 0), Quaternion.identity);
+                Instantiate(spawnObject.Object, new Vector3(PosOrNeg() * 8, Random.Range(5f, 15f), 0), Quaternion.identity);
             }
             else
             {
