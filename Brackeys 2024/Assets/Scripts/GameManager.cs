@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public bool isScrolling;
     public float doorAppearTime;
+    public float cutsceneTime;
+    public bool gameOver;
 
     private void Awake()
     {
@@ -19,7 +21,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isScrolling = true;
+        isScrolling = false;
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -33,6 +36,12 @@ public class GameManager : MonoBehaviour
         isScrolling = change;
     }
 
+    public void StartGame()
+    {
+        ChangeScrolling(true);
+
+    }
+
     public void Win()
     {
         ChangeScrolling(false);
@@ -41,6 +50,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        gameOver = true;
         ChangeScrolling(false);
         Debug.Log("LOSE");
     }

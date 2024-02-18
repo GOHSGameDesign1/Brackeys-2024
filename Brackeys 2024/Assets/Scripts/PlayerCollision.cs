@@ -67,10 +67,11 @@ public class PlayerCollision : MonoBehaviour
     IEnumerator EnterDoor()
     {
         float time = 0;
+        GetComponent<Collider2D>().enabled = false;
 
-        while (time < 0.2f)
+        while (time < 2f)
         {
-            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, time / 0.2f);
+            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, time / 2f);
             time += Time.deltaTime;
             yield return null;
         }

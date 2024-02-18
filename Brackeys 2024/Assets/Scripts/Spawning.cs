@@ -31,7 +31,7 @@ public class Spawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameManager.Instance.isScrolling)
+        if(GameManager.Instance.gameOver)
         {
             StopAllCoroutines();
         }
