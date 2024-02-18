@@ -7,4 +7,5 @@ public class SpawnObject
 {
     public GameObject Object;
     public float spawnWaitTime;
+    public bool isHorizontal;
 }

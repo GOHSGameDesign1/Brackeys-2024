@@ -20,7 +20,7 @@ public class Spawning : MonoBehaviour
     {
         foreach (var spawn in SpawnList)
         {
-            StartCoroutine(Spawn(spawn.Object, spawn.spawnWaitTime));
+            StartCoroutine(Spawn(spawn, spawn.spawnWaitTime));
         }
     }
 
@@ -30,13 +30,25 @@ public class Spawning : MonoBehaviour
         
     }
 
-    IEnumerator Spawn(GameObject spawnObject, float waitTime)
+    IEnumerator Spawn(SpawnObject spawnObject, float waitTime)
     {
         WaitForSeconds spawnWait = new WaitForSeconds(waitTime);
         while (true) // TODO: Change this to when the game is running the level
         {
             yield return spawnWait;
-            Instantiate(spawnObject, new Vector3(Random.Range(xMin, xMax), Random.Range(20, 30), 0), Quaternion.identity);
+            if (spawnObject.isHorizontal)
+            {
+                Instantiate(spawnObject.Object, new Vector3(PosOrNeg() * 8, Random.Range(-5f, 5f), 0), Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(spawnObject.Object, new Vector3(Random.Range(xMin, xMax), Random.Range(20, 30), 0), Quaternion.identity);
+            }
         }
+    }
+
+    int PosOrNeg()
+    {
+        return Random.Range(0, 2) > 0 ? 1 : -1;
     }
 }
