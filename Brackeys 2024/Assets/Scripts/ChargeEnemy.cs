@@ -39,7 +39,6 @@ public class ChargeEnemy : MonoBehaviour
         {
             direction = Vector2.zero;
         }
-        Debug.Log(direction.magnitude);
 
         if(transform.position.y <= -10)
         {
