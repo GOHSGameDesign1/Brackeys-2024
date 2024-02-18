@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public InputAction playerControls;
     public InputAction jump;
     private Rigidbody2D rb;
+    private Collider2D col;
     private GameObject playerChild;
     private GameObject playerShadow;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         playerChild = transform.GetChild(0).gameObject;
         playerShadow = transform.GetChild(1).gameObject;
         canJump = true;
@@ -38,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         direction = playerControls.ReadValue<Vector2>();
         rb.velocity = direction.normalized * moveSpeed;
+        rb.position = new Vector2(Mathf.Clamp(rb.position.x, -6.7f, 6.7f), rb.position.y);
     }
 
     void OnJumpPerformed(InputAction.CallbackContext context)
@@ -57,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 originalPlayerScale = new Vector3(playerChild.transform.localScale.x, playerChild.transform.localScale.y, playerChild.transform.localScale.z);
         float playerScaleModifierX;
         float shadowScaleModifier = 0;
+
+        col.enabled = false;
         while (time < jumpDuration)
         {
             float t = time / jumpDuration;
@@ -70,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             yield return null;
         }
         canJump = true;
+        col.enabled = true;
         playerShadow.transform.localScale = originalShadowScale;
         playerChild.transform.localScale = originalPlayerScale;
         playerChild.transform.localPosition = new Vector2(0, originialHeight);

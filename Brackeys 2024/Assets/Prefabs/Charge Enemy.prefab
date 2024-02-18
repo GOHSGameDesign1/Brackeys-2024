@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632445782475401758}
   - component: {fileID: 8632445782475401759}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632445782578183745}
   - component: {fileID: 8632445782578183744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,9 +179,11 @@ GameObject:
   - component: {fileID: 8632445782785039102}
   - component: {fileID: 8632445782785039097}
   - component: {fileID: 8632445782785039096}
-  m_Layer: 0
+  - component: {fileID: 7842716180362054530}
+  - component: {fileID: -1567687768468696958}
+  m_Layer: 3
   m_Name: Charge Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,6 +245,46 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!60 &7842716180362054530
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632445782785039103}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.34332824, y: 0.42281032}
+      - {x: -0.2245937, y: 0.77176404}
+      - {x: -0.224554, y: 0.16623461}
+--- !u!114 &-1567687768468696958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632445782785039103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ddd7eef6774e04e8f60ecc01275984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8632445782927298226
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8632445782927298252}
   - component: {fileID: 8632445782927298253}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Gorbline
   m_TagString: Untagged
   m_Icon: {fileID: 0}

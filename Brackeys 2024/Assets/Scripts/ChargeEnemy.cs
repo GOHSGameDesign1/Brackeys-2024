@@ -32,15 +32,26 @@ public class ChargeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = (Vector2)player.transform.position - rb.position;
+        if (player != null)
+        {
+            direction = (Vector2)player.transform.position - rb.position;
+        } else
+        {
+            direction = Vector2.zero;
+        }
         Debug.Log(direction.magnitude);
+
+        if(transform.position.y <= -10)
+        {
+            Destroy(gameObject);
+        }
 
         if (!charged)
         {
             rb.velocity = Vector2.down * fallSpeed;
         }
 
-        if(direction.magnitude < 5 && !charged)
+        if(direction.magnitude < 5 && !charged && player != null)
         {
             charged = true;
             StartCoroutine(ChargeWait());
