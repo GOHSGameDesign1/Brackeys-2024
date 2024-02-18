@@ -22,6 +22,11 @@ public class Hole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector2.down * fallSpeed; 
+        rb.velocity = Vector2.down * fallSpeed;
+
+        if (rb.position.y <= -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }

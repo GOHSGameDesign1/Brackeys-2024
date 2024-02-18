@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Spawning : MonoBehaviour
 {
-    public GameObject ChargeEnemy;
 
     public float xMax;
     public float xMin;
-    public float waitTime;
+
+    public List<SpawnObject> SpawnList;
 
     private void Awake()
     {
@@ -18,7 +18,10 @@ public class Spawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(Spawn());
+        foreach (var spawn in SpawnList)
+        {
+            StartCoroutine(Spawn(spawn.Object, spawn.spawnWaitTime));
+        }
     }
 
     // Update is called once per frame
@@ -27,13 +30,13 @@ public class Spawning : MonoBehaviour
         
     }
 
-    IEnumerator Spawn()
+    IEnumerator Spawn(GameObject spawnObject, float waitTime)
     {
         WaitForSeconds spawnWait = new WaitForSeconds(waitTime);
         while (true) // TODO: Change this to when the game is running the level
         {
             yield return spawnWait;
-            Instantiate(ChargeEnemy, new Vector3(Random.Range(xMin, xMax), Random.Range(20, 30), 0), Quaternion.identity);
+            Instantiate(spawnObject, new Vector3(Random.Range(xMin, xMax), Random.Range(20, 30), 0), Quaternion.identity);
         }
     }
 }
