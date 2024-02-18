@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Collider2D col;
     private GameObject playerChild;
     private GameObject playerShadow;
+    private AudioSource playerAudioSource;
 
     public float moveSpeed;
     private Vector2 direction;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<Collider2D>();
         playerChild = transform.GetChild(0).gameObject;
         playerShadow = transform.GetChild(1).gameObject;
+        playerAudioSource = GetComponent<AudioSource>();
         canJump = true;
     }
 
@@ -45,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         }
         direction = playerControls.ReadValue<Vector2>();
         rb.velocity = direction.normalized * moveSpeed;
-        rb.position = new Vector2(Mathf.Clamp(rb.position.x, -6.7f, 6.7f), rb.position.y);
+        rb.position = new Vector2(Mathf.Clamp(rb.position.x, -6.7f, 6.7f), Mathf.Clamp(rb.position.y, 5, 15));
     }
 
     void OnJumpPerformed(InputAction.CallbackContext context)
@@ -57,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator PerformJump()
     {
+        playerAudioSource.Play();
         float time = 0;
         float jumpMaxHeight = playerChild.transform.localPosition.y + jumpHeight;
         float originialHeight = playerChild.transform.localPosition.y;

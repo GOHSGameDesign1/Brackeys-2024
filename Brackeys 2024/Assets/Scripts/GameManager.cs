@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class GameManager : MonoBehaviour
     public float doorAppearTime;
     public float cutsceneTime;
     public bool gameOver;
+    public int doorNumber;
+    private GameObject gameOverPanel;
 
     private void Awake()
     {
@@ -16,6 +20,11 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -28,7 +37,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        gameOverPanel = Resources
+    .FindObjectsOfTypeAll<GameObject>()
+    .FirstOrDefault(g => g.CompareTag("Panel"));
     }
 
     public void ChangeScrolling(bool change)
@@ -45,7 +56,9 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         ChangeScrolling(false);
+        doorNumber++;
         Debug.Log("WIN");
+        RestartGame();
     }
 
     public void Lose()
@@ -53,5 +66,18 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         ChangeScrolling(false);
         Debug.Log("LOSE");
+        doorNumber = 1;
+        Invoke("enablePanel", 1);
+    }
+
+    void enablePanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        gameOver = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

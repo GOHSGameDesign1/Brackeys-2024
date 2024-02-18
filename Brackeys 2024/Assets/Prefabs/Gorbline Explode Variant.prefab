@@ -23,6 +23,10 @@ PrefabInstance:
       propertyPath: _endScale
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8738612054621618954, guid: 50336967d75a72c4892c4af33a0e618d, type: 3}
+      propertyPath: _implodeTime
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8738612054621618955, guid: 50336967d75a72c4892c4af33a0e618d, type: 3}
       propertyPath: m_Color.b
       value: 0.3137255

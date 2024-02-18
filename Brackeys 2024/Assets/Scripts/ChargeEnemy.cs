@@ -34,7 +34,7 @@ public class ChargeEnemy : MonoBehaviour
     {
         if(!GameManager.Instance.isScrolling)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         if (player != null)

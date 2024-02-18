@@ -20,9 +20,19 @@ public class Spawning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (var spawn in SpawnList)
+        if (GameManager.Instance.doorNumber < 5)
         {
-            StartCoroutine(Spawn(spawn, spawn.spawnWaitTime));
+            for (int i = 0; i < GameManager.Instance.doorNumber; i++)
+            {
+                StartCoroutine(Spawn(SpawnList[i], SpawnList[i].spawnWaitTime));
+            }
+        }
+        else
+        {
+            foreach (var spawn in SpawnList)
+            {
+                StartCoroutine(Spawn(spawn, spawn.spawnWaitTime));
+            }
         }
 
         StartCoroutine(SpawnDoor());
