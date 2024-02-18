@@ -38,6 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(!GameManager.Instance.isScrolling)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
         direction = playerControls.ReadValue<Vector2>();
         rb.velocity = direction.normalized * moveSpeed;
         rb.position = new Vector2(Mathf.Clamp(rb.position.x, -6.7f, 6.7f), rb.position.y);
@@ -45,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJumpPerformed(InputAction.CallbackContext context)
     {
-        Debug.Log(context);
         if(!canJump ) { return; }
         canJump = false;
         StartCoroutine(PerformJump());

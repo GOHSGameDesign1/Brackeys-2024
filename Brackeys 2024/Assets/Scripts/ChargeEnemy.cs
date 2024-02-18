@@ -32,6 +32,11 @@ public class ChargeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!GameManager.Instance.isScrolling)
+        {
+            Destroy(gameObject);
+        }
+
         if (player != null)
         {
             direction = (Vector2)player.transform.position - rb.position;

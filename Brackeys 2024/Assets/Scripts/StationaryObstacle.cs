@@ -16,6 +16,12 @@ public class StationaryObstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!GameManager.Instance.isScrolling)
+        {
+            rb.velocity = Vector3.zero;
+            return;
+        }
+
         rb.velocity = Vector2.down * fallSpeed;
 
         if (rb.position.y <= -10)

@@ -20,7 +20,69 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            gameObject.SetActive(false);
+            GameManager.Instance.Lose();
+            Die();
+
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Hole")
+        {
+            transform.position = collision.transform.position;
+            GameManager.Instance.Lose();
+            StartCoroutine(Fall());
+        }
+
+        //if(collision.gameObject.tag == "Door")
+        //{
+        //    EnterTheDoor();
+        //}
+    }
+
+    IEnumerator Fall()
+    {
+        float time = 0;
+
+        while (time < 0.2f)
+        {
+            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, time / 0.2f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localScale = Vector3.zero;
+        Destroy(gameObject);
+
+    }
+
+    public void EnterTheDoor()
+    {
+        transform.position = Vector2.zero;
+        GameManager.Instance.Win();
+        StartCoroutine(EnterDoor());
+    }
+
+    IEnumerator EnterDoor()
+    {
+        float time = 0;
+
+        while (time < 0.2f)
+        {
+            transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, time / 0.2f);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.localScale = Vector3.zero;
+        Destroy(gameObject);
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    
 }

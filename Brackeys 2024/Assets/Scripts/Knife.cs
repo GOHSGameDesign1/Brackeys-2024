@@ -23,6 +23,11 @@ public class Knife : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!GameManager.Instance.isScrolling)
+        {
+            Destroy(gameObject);
+        }
+
         rb.velocity = leftOrRight * speed;
 
         rb.rotation += 360 * Time.deltaTime;
